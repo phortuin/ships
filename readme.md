@@ -22,3 +22,7 @@ Clone this repository, then
 $ cd gravity
 $ love .
 ```
+
+## Credits
+
+- Tutorials and thorough explanation from [The Nature of Code](https://natureofcode.com/forces/) by Daniel Shiffman

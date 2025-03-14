@@ -17,7 +17,7 @@ function Mover:new()
 end
 
 function Mover:applyForce(force --[[ Vector ]])
-	local f = Vector:new(force.x, force.y)
+	local f = Vector:new(force.x, force.y) -- duplicate to avoid changing the original
 	f:div(self.mass)
 	self.acceleration:add(f)
 end
