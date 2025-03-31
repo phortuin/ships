@@ -1,3 +1,9 @@
 {
-	"diagnostics.globals": ["love"]
+	"diagnostics.globals": ["love"],
+	"runtime.version": "Lua 5.1",
+	"format.enable": true,
+	"format.defaultConfig": {
+		"indent_style": "tab",
+		"indent_size": "4"
+	}
 }
