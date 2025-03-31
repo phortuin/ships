@@ -1,6 +1,6 @@
-# gravity
+# ships
 
-> Playground for learning about gravity and physics in Lua
+> Two player space(?) ship dogfighting game
 
 ## Tech
 
