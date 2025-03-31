@@ -1,0 +1,3 @@
+[submodule "vendor/moonshine"]
+	path = vendor/moonshine
+	url = git@github.com:vrld/moonshine.git
