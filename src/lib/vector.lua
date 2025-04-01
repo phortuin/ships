@@ -1,4 +1,6 @@
 ---@class Vector
+---@field x number
+---@field y number
 local Vector = {}
 Vector.__index = Vector
 
