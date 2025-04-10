@@ -10,8 +10,8 @@ Vector.__index = Vector
 -- functions is: https://p5js.org/reference/p5/p5.Vector/
 
 -- Initialize a new vector.
----@param x integer | table If x is a table, assume it’s a Vector and unpack it
----@param y integer
+---@param x? number | table If x is a table, assume it’s a Vector and unpack it
+---@param y? number
 ---@return Vector
 function Vector:new(x, y)
 	if type(x) == "table" then
