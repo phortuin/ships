@@ -61,23 +61,9 @@ end
 -- to track how many times the bullet has hit the edge.
 ---@return nil
 function Bullet:bounceEdges()
-	local xMax = love.graphics.getWidth()
-	local yMax = love.graphics.getHeight()
-
-	-- Bounce horizontally
-	if self.position.x > xMax or self.position.x < 0 then
-		self.velocity.x = self.velocity.x * -1
+	if (util.bounceEdges(self.position, self.velocity)) then
 		self.hitEdgeCounter = self.hitEdgeCounter + 1
 	end
-
-	-- Bounce vertically
-	if self.position.y > yMax or self.position.y < 0 then
-		self.velocity.y = self.velocity.y * -1
-		self.hitEdgeCounter = self.hitEdgeCounter + 1
-	end
-
-	self.position.x = util.clamp(self.position.x, 0, xMax)
-	self.position.y = util.clamp(self.position.y, 0, yMax)
 end
 
 return Bullet
