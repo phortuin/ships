@@ -34,6 +34,8 @@ BULLET_BOUNCE_TIMES = 3
 RESPAWN_AFTER = 5
 HP = 3
 
+SHIP_BOUNCES = true
+
 -- Create a new Ship
 ---@param position Vector
 ---@param direction Vector
@@ -172,8 +174,11 @@ function Ship:update(dt)
 	self.position:add(self.velocity)
 	self.acceleration:mult(0) -- Reset acceleration to 0 so it doesn’t "auto" accelerate without user input
 
-	-- self:checkOutsideScreen(dt) -- Ship can go outside viewport
-	self:bounceEdges() -- Ship bounces within viewport
+	if SHIP_BOUNCES then
+		self:bounceEdges()        -- Ship bounces within viewport
+	else
+		self:checkOutsideScreen(dt) -- Ship can go outside viewport
+	end
 
 	if self.health:isDead() then
 		self:respawn()
