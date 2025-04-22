@@ -34,7 +34,7 @@ BULLET_BOUNCE_TIMES = 3
 RESPAWN_AFTER = 5
 HP = 3
 
-SHIP_BOUNCES = true
+SHIP_BOUNCES = false
 
 -- Create a new Ship
 ---@param position Vector
@@ -221,24 +221,37 @@ function Ship:draw()
 	-- Draw stuff to track the ship outside the screen
 	if self.isOutsideScreen then
 		local arrowOffset = 20
-		local textOffset = 40
 
 		local arrowX = util.clamp(self.position.x, arrowOffset, VIEWPORT_WIDTH - arrowOffset)
 		local arrowY = util.clamp(self.position.y, arrowOffset, VIEWPORT_HEIGHT - arrowOffset)
+		local toShip = Vector:new(arrowX - self.position.x, arrowY - self.position.y)
+		local angle = toShip:angle()
+
 		love.graphics.setColor(1, 0, 0, 1)
-
-		local printOffsetX = util.clamp(arrowX, textOffset, VIEWPORT_WIDTH - textOffset)
-		local printOffsetY = util.clamp(arrowY, textOffset, VIEWPORT_HEIGHT - textOffset)
-
-		love.graphics.circle("fill", arrowX, arrowY, 5)
-		local timer = string.format("[%.2f]", 5 - self.outsideScreenCounter)
-		love.graphics.print(timer, printOffsetX - 9,
-			printOffsetY - 8)
+		DrawBoid(arrowX, arrowY, 8, angle)
 		love.graphics.setColor(1, 1, 1, 1)
 	end
 
 	-- Reset takingDamage state after being drawn
 	self.health.takingDamage = false
+end
+
+-- Draw a triangle in a certain angle
+---@param x number
+---@param y number
+---@param size number
+---@param angle number in radians
+---@return nil
+function DrawBoid(x, y, size, angle)
+	love.graphics.push()
+	love.graphics.translate(x, y)
+	love.graphics.rotate(angle)
+	love.graphics.polygon("fill",
+		-1 * size, 0,
+		size, -1 * size,
+		size, size
+	)
+	love.graphics.pop()
 end
 
 -- Draw the ship’s shadow and its bullet’s shadowses
