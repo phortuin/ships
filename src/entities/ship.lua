@@ -25,9 +25,6 @@ local Bullet = require "src.entities.bullet"
 local Ship = {}
 Ship.__index = Ship
 
-VIEWPORT_WIDTH = love.graphics.getWidth()
-VIEWPORT_HEIGHT = love.graphics.getHeight()
-
 EDGE_DAMAGE = 0
 JUMP_RESET_AFTER = 0.5
 BULLET_BOUNCE_TIMES = 3
@@ -210,7 +207,7 @@ function Ship:draw()
 	end
 
 	-- Draw the ship and it’s health bar
-	drawable.draw(self, 1, self.health.takingDamage)
+	drawable.draw(self, self.health.takingDamage)
 	self.health:drawBar(self)
 
 	-- Draw score

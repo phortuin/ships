@@ -1,8 +1,5 @@
 local util = {}
 
-VIEWPORT_WIDTH = love.graphics.getWidth()
-VIEWPORT_HEIGHT = love.graphics.getHeight()
-
 -- Clamp a value between a lower and upper bound, meaning the value will never
 -- be over or under the bounds
 ---@param value number

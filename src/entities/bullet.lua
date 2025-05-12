@@ -47,7 +47,7 @@ end
 -- Draw the bullet
 ---@return nil
 function Bullet:draw()
-	drawable.draw(self, 1, false)
+	drawable.draw(self, false)
 end
 
 -- Draw the bullet's shadow
