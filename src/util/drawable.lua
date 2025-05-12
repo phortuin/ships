@@ -37,7 +37,7 @@ function drawable.drawShadow(entity)
 	local dist = entity.position:dist(center)                         -- Calculate the distance of the entity to the center of the canvas
 	position:mult(dist / SHADOW_OFFSET)                               -- Multiply shadow’s position by entity’s distance to the center, divided by an offset modifier (larger offset = shadow is closer to the ship). This will render the shadow 'behind' the ship relative to the light source
 	local shadowSize = util.clamp(dist / 120, 2.5, 8)                 -- Arbitrary numbers to make the shadow not too small, not too large
-	love.graphics.setColor(1, 1, 1, util.clamp(50 / dist, 0.1, 0.25)) -- Let shadow’s opacity be fairly low, it gets dark fast
+	love.graphics.setColor(1, 1, 1, util.clamp(50 / dist, 0.1, 0.2))  -- Let shadow’s opacity be fairly low, it gets dark fast
 	love.graphics.draw(
 		entity.shadow,
 		entity.position.x + position.x,
